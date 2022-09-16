@@ -1,19 +1,24 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
-import { initialState, Product, Types } from '../../../domain/product';
+import {
+  initialState,
+  Product,
+  ProductActionTypes,
+} from '../../../domain/product';
 
-export const getProductsAction = createAction(Types.GET_PRODUCTS);
-export const setProductsAction = createAction<
+const getProductsAction = createAction(ProductActionTypes.GET_PRODUCTS_REQUEST);
+const getProductsSuccessAction = createAction<
   { products: Product[] },
-  Types.SET_PRODUCTS
->(Types.SET_PRODUCTS);
+  ProductActionTypes.GET_PRODUCTS_SUCCESS
+>(ProductActionTypes.GET_PRODUCTS_SUCCESS);
 
 const reducer = createReducer(initialState, (builder) => {
   builder
     .addCase(getProductsAction, (state) => {
       state.isLoading = true;
     })
-    .addCase(setProductsAction, (state, action) => {
+    .addCase(getProductsSuccessAction, (state, action) => {
       state.products = action.payload.products;
     });
 });
 export default reducer;
+export { getProductsAction, getProductsSuccessAction };

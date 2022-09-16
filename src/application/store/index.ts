@@ -1,30 +1,45 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
-import logger from 'redux-logger';
+import logger, { createLogger } from 'redux-logger';
 import { createBrowserHistory } from 'history';
 import rootSaga from './rootSaga';
 import rootReducer from './rootReducer';
 import { createReduxHistoryContext } from 'redux-first-history';
+import { unstable_batchedUpdates } from 'react-dom';
 
 const { createReduxHistory, routerMiddleware, routerReducer } =
   createReduxHistoryContext({
     history: createBrowserHistory(),
-    //other options if needed
+    batch: unstable_batchedUpdates,
   });
 const sagaMiddleware = createSagaMiddleware();
 
-const myReducer = combineReducers({ ...rootReducer, router: routerReducer });
+const myReducer = combineReducers({ router: routerReducer, ...rootReducer });
 const store = configureStore({
   reducer: myReducer,
   middleware: (getDefaultMiddleware) => {
     if (process.env.NODE_ENV !== 'production') {
-      return getDefaultMiddleware({ thunk: false })
-        .prepend(sagaMiddleware)
-        .concat(logger);
+      return getDefaultMiddleware({
+        thunk: false,
+      })
+        .prepend(sagaMiddleware, routerMiddleware)
+        .concat(
+          createLogger({
+            collapsed: true,
+            colors: {
+              action: () => '#00bcd4',
+              error: () => '#ff0000',
+              nextState: () => '#4caf50',
+              prevState: () => '#4caf50',
+              title: () => '#00bcd4',
+            },
+          })
+        );
     }
-    return getDefaultMiddleware({ thunk: false })
-      .prepend(sagaMiddleware)
-      .prepend(routerMiddleware);
+    return getDefaultMiddleware({ thunk: false }).prepend(
+      sagaMiddleware,
+      routerMiddleware
+    );
   },
   devTools: false,
 });

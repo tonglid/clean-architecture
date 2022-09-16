@@ -1,6 +1,18 @@
 {
   "compilerOptions": {
     "target": "ESNext",
+    "baseUrl": "./src",
+    "paths": {
+      "components/*": ["./components/*"],
+      "api/*": ["./api/*"],
+      "utils/*": ["./utils/*"],
+      "constants/*": ["./constants/*"],
+      "store/*": ["./store/*"],
+      "i18n/*": ["./i18n/*"],
+      "models/*": ["./models/*"],
+      "styles": ["./styles/*"],
+      "config": ["./config"]
+    },
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": false,
@@ -16,6 +28,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"],
+  "include": ["src", "postcss.config.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { UseProduct } from '../../domain/product';
 import { useProduct } from './useProduct';
 
 const Product = () => {
   const {
     productState: { products },
+    createProduct
   } = useProduct();
   return (
     <table>
@@ -18,6 +18,9 @@ const Product = () => {
         </tr>
       </thead>
       <tbody>
+        <tr>
+          <td onClick={() => createProduct()}></td>
+        </tr>
         {products.map((product, index) => (
           <tr key={product.id}>
             <td>{index + 1}</td>

@@ -4,7 +4,11 @@ export type Product = {
   description: string;
   cost: number;
   price: number;
-  category: Category[];
+  category: Category;
+};
+
+export type ProductForm = Omit<Product, 'category'> & {
+  categoryId: string;
 };
 
 export interface ProductState {
@@ -25,11 +29,12 @@ export type Category = {
   name: string;
 };
 
-export enum Types {
-  GET_PRODUCTS = 'GET/PRODUCTS',
-  SET_PRODUCTS = 'SET/PRODUCTS',
+export enum ProductActionTypes {
+  GET_PRODUCTS_REQUEST = '@@product/GET_PRODUCTS_REQUEST',
+  GET_PRODUCTS_SUCCESS = '@@product/GET_PRODUCTS_SUCCESS',
 }
 
 export type UseProduct = {
   productState: ProductState;
+  createProduct: () => void;
 };
