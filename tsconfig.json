@@ -3,15 +3,9 @@
     "target": "ESNext",
     "baseUrl": "./src",
     "paths": {
-      "components/*": ["./components/*"],
-      "api/*": ["./api/*"],
-      "utils/*": ["./utils/*"],
-      "constants/*": ["./constants/*"],
-      "store/*": ["./store/*"],
-      "i18n/*": ["./i18n/*"],
-      "models/*": ["./models/*"],
-      "styles": ["./styles/*"],
-      "config": ["./config"]
+      "application/*": ["./application/*"],
+      "domain/*": ["./domain/*"],
+      "ui/*": ["./ui/*"],
     },
     "useDefineForClassFields": true,
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
