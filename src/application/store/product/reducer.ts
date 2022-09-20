@@ -1,9 +1,5 @@
 import { createAction, createReducer } from '@reduxjs/toolkit';
-import {
-  initialState,
-  Product,
-  ProductActionTypes,
-} from '../../../domain/product';
+import { initialState, Product, ProductActionTypes } from 'src/domain/product';
 
 const getProductsAction = createAction(ProductActionTypes.GET_PRODUCTS_REQUEST);
 const getProductsSuccessAction = createAction<

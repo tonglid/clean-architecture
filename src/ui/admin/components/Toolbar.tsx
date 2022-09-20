@@ -4,7 +4,7 @@ import { styled } from '@mui/material/styles';
 import ReorderIcon from '@mui/icons-material/Reorder';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 
-import themeSetting from '../../config/theme/themeConfig';
+import themeSetting from '../config/theme/themeConfig';
 import ProfileButton from './../container/Profile';
 
 const AppBar = styled(MuiAppBar, {

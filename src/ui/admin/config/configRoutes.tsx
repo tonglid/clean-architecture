@@ -1,4 +1,4 @@
-import Product from "../admin/container/product/Product";
+import Product from "../container/product/Product";
 
 export type LayoutKey = 'ADMIN' | 'AUTH';export interface Router {
   component: JSX.Element;

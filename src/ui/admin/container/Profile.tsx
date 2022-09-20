@@ -4,7 +4,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
 import Avatar from '@mui/material/Avatar';
 
-import themeSetting from './../../config/theme/themeConfig';
+import themeSetting from '../config/theme/themeConfig';
 
 export default function LanguageButton() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);

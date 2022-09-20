@@ -1,5 +1,5 @@
-import ThemeProvider from './ui/config/theme';
-import Layout from './ui/component/Layout';
+import ThemeProvider from 'src/ui/admin/config/theme';
+import Layout from 'src/ui/admin/components/Layout';
 
 function App() {
   return (

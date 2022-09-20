@@ -19,7 +19,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
-import themeSetting from '../../config/theme/themeConfig';
+import themeSetting from '../config/theme/themeConfig';
 import navigations, { Navigation } from './navigations';
 import BoxScrollbar from './BoxScrollbar';
 

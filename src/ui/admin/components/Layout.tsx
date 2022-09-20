@@ -1,8 +1,8 @@
 import { FC, NamedExoticComponent } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import Admin from '../admin/Layout';
-import Auth from '../auth/Layout';
+import Admin from 'src/ui/admin/Layout';
+import Auth from 'src/ui/admin/auth/Layout';
 import routers, { Router, LayoutKey } from '../config/configRoutes';
 
 export type Layout = {

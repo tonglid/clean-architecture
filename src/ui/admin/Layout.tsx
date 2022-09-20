@@ -5,7 +5,7 @@ import { Outlet } from 'react-router-dom';
 
 import Sidebar from './components/Sidebar';
 import Toolbar from './components/Toolbar';
-import themeSetting from './../config/theme/themeConfig';
+import themeSetting from './config/theme/themeConfig';
 // import Authorization from 'helper/authorization';
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
